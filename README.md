@@ -78,7 +78,7 @@ Make sure to replace `your_openai_api_key_here` with your actual API key from Op
 Now, let's start the bot! Run the following command in your terminal:
 
 ```bash
-python main.py
+python app.py
 ```
 
 You should see messages indicating that the server is running.

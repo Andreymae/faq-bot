@@ -67,38 +67,7 @@ class FAQChatbot:
     def format_response(self, response: dict) -> str:
         """Format the API response for display in the chatbot"""
         answer = response.get("answer", "No answer provided")
-        confidence = response.get("confidence", 0.0)
-        matched_question = response.get("matched_question")
-        source_url = response.get("source_url")
-        brand = response.get("brand")
-
-        # Format the response with metadata
         formatted = f"{answer}"
-
-        # Add metadata section if we have any relevant info
-        metadata = []
-        # Only show confidence if it's meaningful (e.g., > 0 and not an error message)
-        if confidence > 0 and "Error" not in answer and "⚠️" not in answer:
-            confidence_pct = f"{confidence * 100:.1f}%"
-            metadata.append(f"Confidence: {confidence_pct}")
-
-        if (
-            matched_question
-            and matched_question != "Synthesized from similar questions"
-        ):
-            metadata.append(f'Matched question: "{matched_question}"')
-        elif matched_question:  # Handles the "Synthesized..." case
-            metadata.append(f"Response: {matched_question}")
-
-        if brand:
-            metadata.append(f"Source: {brand}")
-
-        if source_url:
-            metadata.append(f"[More information]({source_url})")
-
-        # Add metadata as smaller text if we have any
-        if metadata:
-            formatted += "\n\n---\n" + "\n".join(metadata)
 
         return formatted
 
@@ -118,7 +87,7 @@ chatbot = FAQChatbot()
 with gr.Blocks(title="Car Insurance FAQ Chatbot") as demo:
     gr.Markdown(
         """
-        # 🚗 Car Insurance FAQ Chatbot
+        # 🚗 Car Insurance FAQ Chatbot in Australia
         
         Ask questions about car insurance in Australia and get instant answers!
         """
@@ -218,4 +187,4 @@ with gr.Blocks(title="Car Insurance FAQ Chatbot") as demo:
 
 
 if __name__ == "__main__":
-    demo.launch(share=False)
+    demo.launch(share=True)

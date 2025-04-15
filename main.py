@@ -5,7 +5,7 @@ import uvicorn
 from dotenv import load_dotenv
 
 from src.api import app
-from src.chatbot import create_chatbot_interface
+from src.chatbot import demo
 
 # Load environment variables from .env file
 load_dotenv()
@@ -18,8 +18,7 @@ def run_api_server():
 
 def run_chatbot_interface():
     """Create and run the Gradio interface"""
-    interface = create_chatbot_interface()
-    interface.launch(server_name="0.0.0.0", share=True)
+    demo.launch(server_name="0.0.0.0", share=True)
 
 
 # Run the application

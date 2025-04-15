@@ -85,7 +85,7 @@ You should see messages indicating that the server is running.
 
 ### 6️⃣ Interact with the Bot
 
-1. Open your web browser and go to **http://localhost:8000**.
+1. Open your web browser and go to **http://localhost:7860**.
 2. Enter your OpenAI API key in the settings panel.
 3. Start asking questions about car insurance in Australia!
 
@@ -96,7 +96,6 @@ You can use these special commands while chatting with the bot:
 - `/reload` - Refresh the FAQ database.
 - `/sources` - See the sources of the information.
 - `/health` - Check if the bot is functioning properly.
-- `/about` - Learn more about the bot and its creators.
 
 ## 📚 Additional Resources
 
